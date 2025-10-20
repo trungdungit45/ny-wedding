@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save The Date — Trung Dũng & Thái Ninh</title>
+  <meta name="description" content="Save the Date 13/12/2025 — Trung Dũng & Thái Ninh tại White Palace, TP.HCM" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Trung Dũng <span class="amp">&</span> Thái Ninh</div>
+      <nav>
+        <ul>
+          <li><a href="#countdown">Countdown</a></li>
+          <li><a href="#couple">Couple</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#messages">Lời chúc</a></li>
+          <li><a href="#location">Location</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero" id="home">
+    <div class="hero-card reveal">
+      <h1 class="names">Trung Dũng <span class="amp">&</span> Thái Ninh</h1>
+      <p class="tagline">Cùng nhau bắt đầu chương mới</p>
+      <p class="date">13.12.2025 • White Palace, TP.HCM</p>
+      <div class="cta-row"><a class="btn" href="#countdown">Save The Date</a></div>
+    </div>
+  </section>
+  <section id="countdown">
+    <div class="container">
+      <h2 class="sec-title">Đếm ngược đến ngày cưới</h2>
+      <p class="sec-desc">Hẹn gặp anh chị và bạn bè vào ngày 13/12/2025 — rất mong được đón tiếp! 💖</p>
+      <div class="countdown card reveal">
+        <div class="unit">
+          <div class="num" id="d">--</div>
+          <div class="label">Ngày</div>
+        </div>
+        <div class="unit">
+          <div class="num" id="h">--</div>
+          <div class="label">Giờ</div>
+        </div>
+        <div class="unit">
+          <div class="num" id="m">--</div>
+          <div class="label">Phút</div>
+        </div>
+        <div class="unit">
+          <div class="num" id="s">--</div>
+          <div class="label">Giây</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="couple">
+    <div class="container">
+      <h2 class="sec-title">Cặp đôi</h2>
+      <p class="sec-desc">Một góc nhỏ kể về chúng mình — nơi bắt đầu của hành trình chung đôi.</p>
+      <div class="couple reveal card"><div class="photo"><img src="assets/images/couple.jpg"
+            alt="Ảnh cưới của Trung Dũng và Thái Ninh" /></div>
+        <div class="bio">
+          <h3>Trung Dũng & Thái Ninh</h3>
+          <p>Chúng mình rất háo hức đón chờ ngày đặc biệt và mong được chia sẻ niềm vui này cùng mọi người.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="messages">
+    <div class="container">
+      <h2 class="sec-title">Gửi lời chúc</h2>
+      <p class="sec-desc">Gửi đến Trung Dũng & Thái Ninh những lời chúc ngọt ngào nhất 💌</p>
+      <div class="card reveal" style="padding:18px">
+        <div class="message-box"><input id="guestName" placeholder="Tên của bạn" /><textarea id="guestMessage"
+            placeholder="Lời chúc..."></textarea><button id="sendMsg" class="btn">Gửi lời chúc</button></div>
+        <div class="messages-list" id="messagesList"></div>
+      </div>
+    </div>
+  </section>
+  <section id="location">
+    <div class="container">
+      <h2 class="sec-title">Địa điểm tổ chức</h2>
+      <p class="sec-desc">Trung tâm tiệc cưới White Palace, TP.HCM</p>
+      <div class="card reveal" style="overflow:hidden"><iframe title="Bản đồ White Palace" width="100%" height="420"
+          style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=White+Palace+Event+and+Conference+Center+Ho+Chi+Minh&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">With love — Trung Dũng & Thái Ninh • 13.12.2025</div>
+  </footer>
+  <div class="audio-toggle"><button id="musicBtn" class="btn alt" type="button">♫ Nhạc: Tắt/Bật</button><audio id="bgm"
+      loop>
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4a49a38d23.mp3?filename=romantic-ambient-110997.mp3"
+        type="audio/mpeg" />
+    </audio>
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
