@@ -77,6 +77,19 @@ img {
   background: rgba(234, 204, 188, .35)
 }
 
+/* Nav Toggle (Hamburger) */
+.nav-toggle {
+  display: none; /* Ẩn trên desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle .bar {
+  display: block;
+  width: 25px; height: 3px; margin: 5px auto;
+  background-color: var(--ink); transition: all 0.3s ease-in-out;
+}
 .hero {
   position: relative;
   min-height: 88dvh;
@@ -231,6 +244,29 @@ section {
   .couple {
     grid-template-columns: 1fr
   }
+
+  /* Responsive Nav */
+  .nav-toggle { display: block; z-index: 100; }
+  .nav-links {
+    position: absolute;
+    top: 100%; right: 0;
+    background: rgba(255, 247, 243, .95);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(229, 200, 168, .35);
+  }
+  .nav-links.open { transform: scaleY(1); }
+  .nav-links ul { flex-direction: column; align-items: center; gap: .5rem; }
+  .nav-links a { display: block; width: 100%; text-align: center; }
+
+  /* Hamburger animation */
+  .nav-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-toggle.open .bar:nth-child(2) { opacity: 0; }
+  .nav-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
 .grid {
@@ -262,13 +298,13 @@ section {
 
 .timeline {
   position: relative;
-  padding-left: 22px
+  padding-left: 30px; /* Tăng padding để có không gian cho đường kẻ và dấu chấm */
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: calc(50% - 1px);
+  left: 8px; /* Căn đường kẻ timeline về bên trái */
   top: 0;
   bottom: 0;
   width: 2px;
@@ -278,14 +314,17 @@ section {
 .step {
   position: relative;
   margin: 28px 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px
+  padding-left: 25px; /* Tạo khoảng cách giữa dấu chấm và hộp nội dung */
+}
+
+/* Không cần căn phải nữa */
+.step:nth-child(odd) .box {
+  text-align: left;
 }
 
 .step .dot {
   position: absolute;
-  left: calc(50% - 8px);
+  left: 0; /* Đặt dấu chấm vào đầu mỗi step */
   top: 16px;
   width: 16px;
   height: 16px;
@@ -310,15 +349,11 @@ section {
 
 @media(max-width:900px) {
   .step {
-    grid-template-columns: 1fr
+    padding-left: 20px; /* Điều chỉnh lại padding cho mobile */
   }
 
-  .timeline::before {
-    left: 11px
-  }
-
-  .step .dot {
-    left: 3px
+  .timeline {
+    padding-left: 20px;
   }
 }
 
@@ -382,4 +417,43 @@ textarea {
 .reveal.show {
   opacity: 1;
   transform: none
+}
+
+/* Lightbox Styles */
+.lightbox {
+  border: none;
+  padding: 0;
+  background: rgba(30, 20, 20, .8);
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox::backdrop {
+  background: rgba(30, 20, 20, .8);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox .lightbox-inner {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 95vh; /* Giới hạn chiều cao ảnh để không bị tràn màn hình */
+  border-radius: 8px;
+}
+
+.lightbox .close-x {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
 }

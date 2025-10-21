@@ -8,6 +8,7 @@
   <meta name="description" content="Save the Date 13/12/2025 — Trung Dũng & Thái Ninh tại White Palace, TP.HCM" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet">
@@ -18,7 +19,7 @@
   <header class="nav">
     <div class="container nav-inner">
       <div class="brand">Trung Dũng <span class="amp">&</span> Thái Ninh</div>
-      <nav>
+      <nav class="nav-links">
         <ul>
           <li><a href="#countdown">Countdown</a></li>
           <li><a href="#couple">Couple</a></li>
@@ -28,14 +29,16 @@
           <li><a href="#location">Location</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Mở menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     </div>
   </header>
+
   <section class="hero" id="home">
-    <div class="hero-card reveal">
+    <div class="text-center hero-card reveal">
       <h1 class="names">Trung Dũng <span class="amp">&</span> Thái Ninh</h1>
       <p class="tagline">Cùng nhau bắt đầu chương mới</p>
       <p class="date">13.12.2025 • White Palace, TP.HCM</p>
-      <div class="cta-row"><a class="btn" href="#countdown">Save The Date</a></div>
+      <a class="btn" href="#countdown">Save The Date</a>
     </div>
   </section>
   <section id="countdown">
@@ -67,7 +70,7 @@
       <h2 class="sec-title">Cặp đôi</h2>
       <p class="sec-desc">Một góc nhỏ kể về chúng mình — nơi bắt đầu của hành trình chung đôi.</p>
       <div class="couple reveal card">
-        <div class="photo"><img src="assets/images/002A7998.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh" /></div>
+        <div class="photo"><img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh" /></div>
         <div class="bio">
           <h3>Trung Dũng & Thái Ninh</h3>
           <p>Chúng mình rất háo hức đón chờ ngày đặc biệt và mong được chia sẻ niềm vui này cùng mọi người.</p>
@@ -81,27 +84,82 @@
       <p class="sec-desc">Những khoảnh khắc trước thềm hôn lễ ✨ — chạm để xem lớn.</p>
       <div class="grid reveal">
         <!-- 6 ảnh mẫu (anh có thể thay link src & data-photo bằng ảnh thật của mình) -->
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-          <img src="assets/images/002A8687.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-          <img src="assets/images/002A8687.JPG" alt="photo 2">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-          <img src="assets/images/002A8687.JPG" alt="photo 3">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-        <img src="assets/images/002A8687.JPG" alt="photo 4">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-          <img src="assets/images/002A8687.JPG" alt="photo 5">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
-        <a href="#" data-photo="assets/images/002A8687.JPG">
-          <img src="assets/images/002A8687.JPG" alt="photo 6">
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
+        </a>
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
+        </a>
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
+        </a>
+        <a href="#" data-photo="assets/images/EE35C78F.JPG">
+          <img src="assets/images/EE35C78F.JPG" alt="Ảnh cưới của Trung Dũng và Thái Ninh">
         </a>
       </div>
     </div>
+    <!-- Timeline -->
+    <section id="timeline">
+      <div class="container">
+        <h2 class="sec-title">Hành trình tình yêu</h2>
+        <p class="sec-desc">
+          Những dấu mốc ngọt ngào trong câu chuyện của Trung Dũng & Thái Ninh 💖
+        </p>
 
+        <div class="timeline">
+          <!-- Mốc 1 -->
+          <div class="step reveal">
+            <span class="dot"></span>
+            <div class="box card">
+              <h4>2019 • Lần đầu gặp gỡ</h4>
+              <p>Một ánh nhìn đủ làm trái tim rung động và mở ra hành trình yêu thương.</p>
+            </div>
+          </div>
+
+          <!-- Mốc 2 -->
+          <div class="step reveal">
+            <span class="dot"></span>
+            <div></div>
+            <div class="box card">
+              <h4>2021 • Lời tỏ tình</h4><p>Bắt đầu hành trình nắm tay nhau qua những ngày bình yên và hạnh phúc.</p>
+            </div>
+          </div>
+
+          <!-- Mốc 3 -->
+          <div class="step reveal">
+            <span class="dot"></span>
+            <div class="box card">
+              <h4>2023 • Cùng nhau trưởng thành</h4>
+              <p>Vượt qua khó khăn, cùng nhau lớn lên trong tình yêu và sự thấu hiểu.</p>
+            </div>
+          </div>
+
+          <!-- Mốc 4 -->
+          <div class="step reveal">
+            <span class="dot"></span>
+            <div></div>
+            <div class="box card">
+              <h4>2025 • Cầu hôn</h4><p>Một lời hứa trọn đời — khởi đầu cho chương mới mang tên hôn nhân.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Lightbox -->
     <dialog class="lightbox" id="lightbox">
       <div class="lightbox-inner">
