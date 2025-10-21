@@ -1,3 +1,13 @@
+// --- Responsive Nav ---
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+}
 // --- Animation on Scroll ---
 const intersectionObserver = new IntersectionObserver(
   (entries) => {
@@ -48,28 +58,87 @@ if (d && h && m && s) {
 
 // --- Guest Messages ---
 // This part for guest messages remains the same as it's quite specific.
-// For a real application, you'd use a backend service instead of localStorage.
-const KEY = 'wedding_messages'; const nameEl = document.getElementById('guestName'); const msgEl = document.getElementById('guestMessage'); const sendBtn = document.getElementById('sendMsg'); const listEl = document.getElementById('messagesList'); function load() { let a = []; try { a = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { a = []; } if (a.length === 0) { a = [{ name: 'Bạn thân', text: 'Chúc hai bạn trăm năm hạnh phúc! 💖' }, { name: 'Colleague', text: 'Chúc mừng hạnh phúc! Hẹn gặp tại White Palace!' }, { name: 'Gia đình', text: 'Luôn yêu thương và đồng hành cùng nhau nhé! 💍' }]; localStorage.setItem(KEY, JSON.stringify(a)); } return a; } function rnd(a, n) { const c = [...a]; const r = []; while (c.length && r.length < n) { const i = Math.floor(Math.random() * c.length); r.push(c.splice(i, 1)[0]); } return r; } function esc(s) { return String(s).replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', '\'': '&#39;' }[s])); } function render() { const a = load(); const p = rnd(a, 3); listEl.innerHTML = p.map(m => `<div class='msg-item'><strong>${esc(m.name || 'Khách')}</strong><p>${esc(m.text || '')}</p></div>`).join(''); } if (listEl) { render(); setInterval(render, 10000); } if (sendBtn) { sendBtn.addEventListener('click', () => { const n = (nameEl.value || '').trim(); const t = (msgEl.value || '').trim(); if (t.length < 2) { alert('Viết đôi lời chúc trước khi gửi nhé 💌'); return; } const a = load(); a.push({ name: n || 'Khách', text: t, time: new Date().toISOString() }); localStorage.setItem(KEY, JSON.stringify(a)); msgEl.value = ''; render(); }); }
+const nameEl = document.getElementById('guestName');
+const msgEl = document.getElementById('guestMessage');
+const sendBtn = document.getElementById('sendMsg');
+const listEl = document.getElementById('messagesList');
+
+// THAY URL BẠN NHẬN ĐƯỢC TỪ GOOGLE APPS SCRIPT VÀO ĐÂY
+const API_URL = 'https://script.google.com/macros/s/AKfycbw7snxwwD80AoJbiK7ZFMfWPULh54TrPA6wNo-On44X-lPNJbkOS3VCSzUsZ91-AIm0xg/exec';
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[char]));
+}
+
+async function loadMessages() {
+  if (!listEl || !API_URL.startsWith('https')) return;
+  try {
+    listEl.innerHTML = '<p>Đang tải lời chúc...</p>';
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error('Failed to fetch messages');
+    const messages = await response.json();
+
+    if (messages.length === 0) {
+      listEl.innerHTML = '<p>Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! 💌</p>';
+    } else {
+      listEl.innerHTML = messages.map(m =>
+        `<div class='msg-item'><strong>${esc(m.name || 'Khách')}</strong><p>${esc(m.text || '')}</p></div>`
+      ).join('');
+    }
+  } catch (error) {
+    console.error('Error loading messages:', error);
+    listEl.innerHTML = '<p>Không thể tải lời chúc. Vui lòng thử lại sau.</p>';
+  }
+}
+
+if (sendBtn) {
+  sendBtn.addEventListener('click', async () => {
+    const name = (nameEl.value || '').trim();
+    const text = (msgEl.value || '').trim();
+    if (text.length < 2) {
+      alert('Viết đôi lời chúc trước khi gửi nhé 💌');
+      return;
+    }
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Đang gửi...';
+    await fetch(API_URL, { method: 'POST', body: JSON.stringify({ name, text }) });
+    msgEl.value = '';
+    sendBtn.disabled = false;
+    sendBtn.textContent = 'Gửi lời chúc';
+    await loadMessages();
+  });
+}
+
+if (listEl) {
+  loadMessages();
+  // Tự động làm mới danh sách lời chúc mỗi 60 giây
+  setInterval(loadMessages, 60000);
+}
 
 // ===== Lightbox functionality =====
-  const box = document.getElementById('lightbox');
-  const boxImg = document.getElementById('lightbox-img');
-  if (box && boxImg) {
-    document.querySelectorAll('#gallery .grid a').forEach(a => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const url = a.getAttribute('data-photo');
-        boxImg.src = url;
-        box.showModal();
-      });
+const box = document.getElementById('lightbox');
+const boxImg = document.getElementById('lightbox-img');
+if (box && boxImg) {
+  document.querySelectorAll('#gallery .grid a').forEach((a, index) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = a.getAttribute('data-photo');
+      boxImg.src = url;
+      box.showModal();
     });
-    box.querySelector('.close-x').addEventListener('click', () => box.close());
-    box.addEventListener('click', (e) => {
-      if (e.target === box) box.close();
-    });
-  }
-
-
+  });
+  box.querySelector('.close-x').addEventListener('click', () => box.close());
+  box.addEventListener('click', (e) => {
+    if (e.target === box) box.close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (box.open && e.key === 'Escape') {
+      box.close();
+    }
+  });
+}
 // --- Background Music ---
 const audio = document.getElementById('bgm');
 const musicBtn = document.getElementById('musicBtn');
