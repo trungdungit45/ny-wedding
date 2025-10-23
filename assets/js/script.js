@@ -64,7 +64,7 @@ const sendBtn = document.getElementById('sendMsg');
 const listEl = document.getElementById('messagesList');
 
 // THAY URL BẠN NHẬN ĐƯỢC TỪ GOOGLE APPS SCRIPT VÀO ĐÂY
-const API_URL = 'https://script.google.com/macros/s/AKfycbw7snxwwD80AoJbiK7ZFMfWPULh54TrPA6wNo-On44X-lPNJbkOS3VCSzUsZ91-AIm0xg/exec';
+const gg_ApiUrl = 'https://script.google.com/macros/s/AKfycbw7snxwwD80AoJbiK7ZFMfWPULh54TrPA6wNo-On44X-lPNJbkOS3VCSzUsZ91-AIm0xg/exec';
 
 function esc(s) {
   return String(s).replace(/[&<>"']/g, char => ({
@@ -73,17 +73,17 @@ function esc(s) {
 }
 
 async function loadMessages() {
-  if (!listEl || !API_URL.startsWith('https')) return;
+  if (!listEl || !gg_ApiUrl.startsWith('https')) return;
   try {
     listEl.innerHTML = '<p>Đang tải lời chúc...</p>';
-    const response = await fetch(API_URL);
+    const response = await fetch(gg_ApiUrl);
     if (!response.ok) throw new Error('Failed to fetch messages');
     const messages = await response.json();
 
     if (messages.length === 0) {
       listEl.innerHTML = '<p>Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! 💌</p>';
     } else {
-      listEl.innerHTML = messages.reverse().map(m =>
+      listEl.innerHTML = messages.map(m =>
         `<div class='msg-item'><strong>${esc(m.name || 'Khách')}</strong><p>${esc(m.text || '')}</p></div>`
       ).join('');
     }
@@ -103,7 +103,7 @@ if (sendBtn) {
     }
     sendBtn.disabled = true;
     sendBtn.textContent = 'Đang gửi...';
-    await fetch(API_URL, { method: 'POST', body: JSON.stringify({ name, text }) });
+    await fetch(gg_ApiUrl, { method: 'POST', body: JSON.stringify({ name, text }) });
     msgEl.value = '';
     sendBtn.disabled = false;
     sendBtn.textContent = 'Gửi lời chúc';
