@@ -379,7 +379,9 @@ textarea {
 .messages-list {
   margin-top: 24px;
   display: grid;
-  gap: 10px
+  gap: 10px;
+  max-height: 500px; /* Giới hạn chiều cao, tương đương khoảng 5-7 tin nhắn */
+  overflow-y: auto; /* Tự động thêm thanh cuộn khi nội dung vượt quá */
 }
 
 .msg-item {

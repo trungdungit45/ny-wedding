@@ -83,7 +83,7 @@ async function loadMessages() {
     if (messages.length === 0) {
       listEl.innerHTML = '<p>Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc nhé! 💌</p>';
     } else {
-      listEl.innerHTML = messages.map(m =>
+      listEl.innerHTML = messages.reverse().map(m =>
         `<div class='msg-item'><strong>${esc(m.name || 'Khách')}</strong><p>${esc(m.text || '')}</p></div>`
       ).join('');
     }
@@ -97,7 +97,7 @@ if (sendBtn) {
   sendBtn.addEventListener('click', async () => {
     const name = (nameEl.value || '').trim();
     const text = (msgEl.value || '').trim();
-    if (text.length < 2) {
+    if (text.length < 2) {ad
       alert('Viết đôi lời chúc trước khi gửi nhé 💌');
       return;
     }
