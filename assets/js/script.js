@@ -117,18 +117,87 @@ if (listEl) {
   setInterval(loadMessages, 60000);
 }
 
+
+// --- Dynamic Gallery ---
+const galleryContainer = document.getElementById('photo-gallery');
+
+if (galleryContainer) {
+  // Đây là danh sách TẤT CẢ các ảnh cưới của bạn.
+  // Bạn có thể thêm bao nhiêu ảnh tùy thích vào danh sách này.
+  // Đảm bảo các hình ảnh này nằm trong thư mục `assets/images/wedding_gallery/`
+  const allImageFiles = [
+  '002A7893.jpg',
+  '002A7943.jpg',
+  '002A8125.jpg',
+  '002A8242.jpg',
+  '002A8257.jpg',
+  '002A8260.jpg',
+  '002A8378.jpg',
+  '002A8398.jpg',
+  '002A8404.jpg',
+  '002A8416.jpg',
+  '002A8418.jpg',
+  '002A8429.jpg',
+  '002A8458.jpg',
+  '002A8540.jpg',
+  '002A8601.jpg',
+  '002A8620.jpg',
+  '002A8642.jpg',
+  '002A8754.jpg',
+  '002A8792.jpg',
+  '002A8814.jpg',
+  '002A8826.jpg',
+  '002A8861.jpg',
+  '002A8947.jpg'
+  ];
+
+  const galleryPath = 'assets/images/wedding_gallery/';
+
+  // Hàm xáo trộn mảng (Fisher-Yates shuffle)
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Hoán đổi vị trí
+    }
+  }
+
+  // Xáo trộn danh sách ảnh
+  shuffleArray(allImageFiles);
+
+  // Lấy 6 ảnh đầu tiên sau khi đã xáo trộn
+  const selectedImages = allImageFiles.slice(0, 6);
+
+  selectedImages.forEach(fileName => {
+    const fullPath = galleryPath + fileName;
+    const anchor = document.createElement('a');
+    anchor.href = '#';
+    anchor.dataset.photo = fullPath;
+
+    const img = document.createElement('img');
+    img.src = fullPath;
+    img.alt = 'Ảnh cưới của Trung Dũng và Thái Ninh';
+    img.loading = 'lazy'; // Tải lười để tăng tốc độ trang
+
+    anchor.appendChild(img);
+    galleryContainer.appendChild(anchor);
+  });
+}
+
 // ===== Lightbox functionality =====
 const box = document.getElementById('lightbox');
 const boxImg = document.getElementById('lightbox-img');
 if (box && boxImg) {
-  document.querySelectorAll('#gallery .grid a').forEach((a, index) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const url = a.getAttribute('data-photo');
-      boxImg.src = url;
-      box.showModal();
-    });
+  // Sử dụng event delegation để xử lý các mục được thêm động
+  galleryContainer.addEventListener('click', (e) => {
+    e.preventDefault();
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+
+    const url = anchor.getAttribute('data-photo');
+    boxImg.src = url;
+    box.showModal();
   });
+
   box.querySelector('.close-x').addEventListener('click', () => box.close());
   box.addEventListener('click', (e) => {
     if (e.target === box) box.close();
