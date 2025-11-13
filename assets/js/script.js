@@ -168,12 +168,21 @@ if (galleryContainer) {
 
   selectedImages.forEach(fileName => {
     const fullPath = galleryPath + fileName;
+    // Tạo đường dẫn cho các kích thước ảnh khác nhau
+    const baseName = fileName.substring(0, fileName.lastIndexOf('.'));
+    const extension = fileName.substring(fileName.lastIndexOf('.'));
+    const smallPath = `${galleryPath}${baseName}-small${extension}`;
+    const mediumPath = `${galleryPath}${baseName}-medium${extension}`;
+
     const anchor = document.createElement('a');
     anchor.href = '#';
     anchor.dataset.photo = fullPath;
 
     const img = document.createElement('img');
-    img.src = fullPath;
+    // Sử dụng ảnh nhỏ nhất làm ảnh mặc định
+    img.src = smallPath;
+    // Cung cấp các phiên bản ảnh khác nhau cho trình duyệt lựa chọn
+    img.srcset = `${smallPath} 400w, ${mediumPath} 800w, ${fullPath} 1200w`;
     img.alt = 'Ảnh cưới của Trung Dũng và Thái Ninh';
     img.loading = 'lazy'; // Tải lười để tăng tốc độ trang
 
