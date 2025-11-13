@@ -132,7 +132,6 @@ if (galleryContainer) {
   '002A8242.jpg',
   '002A8257.jpg',
   '002A8260.jpg',
-  '002A8378.jpg',
   '002A8398.jpg',
   '002A8404.jpg',
   '002A8416.jpg',
