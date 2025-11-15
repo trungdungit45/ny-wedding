@@ -94,7 +94,7 @@ img {
 }
 .hero {
   position: relative;
-  min-height: 88dvh;
+  /* min-height: 88dvh; */
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, rgba(250, 218, 221, .55), rgba(255, 247, 243, .6)), url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG');
@@ -175,12 +175,12 @@ img {
 }
 
 section {
-  padding: 80px 20px
+  padding: 40px 20px
 }
 
 .sec-title {
   font-family: 'Italianno', cursive;
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: clamp(32px, 4vw, 48px); 
   text-align: center;
   margin: 0 0 28px
 }
@@ -188,10 +188,10 @@ section {
 .sec-desc {
   text-align: center;
   font-family: 'Italianno', cursive;
+  font-size: clamp(20px, 4.5vw, 30px);
   color: var(--muted);
   margin: -10px auto 32px;
   max-width: 720px;
-  font-size: clamp(16px, 4vw, 28px)
 }
 
 .card {
@@ -241,7 +241,6 @@ section {
 
 .bio h3 {
   font-family: 'Italianno', cursive;
-  font-size: clamp(20px, 6vw, 54px);
   margin: 0 0 8px;
   text-align: center;
 }
@@ -485,7 +484,7 @@ textarea {
 
 .location-card h3 {
   font-family: 'Italianno', cursive;
-  font-size: 24px;
+  font-size: 28px;
   margin: 0 0 10px;
 }
 
@@ -498,6 +497,7 @@ textarea {
 #giftbox {
     /* background: var(--rose); */
     padding: 80px 0;
+    display: none;
   }
   #giftbox .sec-title {
     color: var(--ink);
@@ -539,14 +539,11 @@ textarea {
   }
 }
 body {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .names { font-size: clamp(30px, 7vw, 68px); }
 .tagline { font-size: clamp(16px, 4.5vw, 34px); }
-.date 
-.sec-title { font-size: clamp(32px, 5vw, 48px); }
-.sec-desc { font-size: clamp(18px, 4.5vw, 30px); }
 .bio h3 { font-size: clamp(26px, 6vw, 48px); }
 
 .msg-item { font-size: 18px; }
