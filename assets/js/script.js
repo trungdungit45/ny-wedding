@@ -171,8 +171,8 @@ if (galleryContainer) {
     // Tạo đường dẫn cho các kích thước ảnh khác nhau
     const baseName = fileName.substring(0, fileName.lastIndexOf('.'));
     const extension = fileName.substring(fileName.lastIndexOf('.'));
-    const smallPath = `${galleryPath}${baseName}-small${extension}`;
-    const mediumPath = `${galleryPath}${baseName}-medium${extension}`;
+    const smallPath = `${galleryPath}${baseName}${extension}`;
+    const mediumPath = `${galleryPath}${baseName}${extension}`;
 
     const anchor = document.createElement('a');
     anchor.href = '#';
