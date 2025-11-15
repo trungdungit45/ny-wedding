@@ -150,7 +150,7 @@ if (galleryContainer) {
   '002A8947.jpg'
   ];
 
-  const galleryPath = 'assets/images/wedding_gallery/';
+  const galleryPath = 'assets/images/';
 
   // Hàm xáo trộn mảng (Fisher-Yates shuffle)
   function shuffleArray(array) {
