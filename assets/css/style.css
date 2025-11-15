@@ -55,11 +55,12 @@ img {
 .brand {
   font-family: 'Italianno', serif;
   font-weight: 700;
-  letter-spacing: .5px
+  letter-spacing: .5px;
+  color: #a44800;
 }
 
 .brand .amp {
-  color: var(--gold)
+color: #a44800;
 }
 
 .nav ul {
@@ -97,9 +98,11 @@ img {
   /* min-height: 88dvh; */
   display: grid;
   place-items: center;
-  background: linear-gradient(180deg, rgba(250, 218, 221, .55), rgba(255, 247, 243, .6)), url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG');
+  /* background: linear-gradient(180deg, rgba(250, 218, 221, .55), rgba(255, 247, 243, .6)), url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG'); */
+  background-image: url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG');
   background-size: cover;
   background-position: center;
+  max-height: 100dvh;
 }
 
 .hero::after {
@@ -112,12 +115,12 @@ img {
 .hero-card {
   position: relative;
   z-index: 2;
-  backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, .55);
+  /* backdrop-filter: blur(6px); */
+  /* background: rgba(255, 255, 255, .55);
   border: 1px solid rgba(229, 200, 168, .5);
-  border-radius: var(--radius);
-  padding: 2.2rem 2rem;
-  box-shadow: var(--shadow);
+  border-radius: var(--radius); */
+  /* padding: 2.2rem 2rem; */
+  /* box-shadow: var(--shadow); */
   text-align: center;
   width: min(680px, 92%)
 }
@@ -127,6 +130,7 @@ img {
   font-size: clamp(20px, 6vw, 54px);
   line-height: 1.1;
   margin: 0 0 1.2rem 0;
+  color: #a44800;
 }
 
 .names .amp {
@@ -138,7 +142,8 @@ img {
   font-weight: 500;
   font-family: 'Italianno', cursive;
   font-size: clamp(12px, 4vw, 30px);
-  color: var(--muted)
+  color: var(--muted);
+  letter-spacing:5px;
 }
 
 .date {
@@ -175,14 +180,15 @@ img {
 }
 
 section {
-  padding: 40px 20px
+  padding: 30px 20px
 }
 
 .sec-title {
   font-family: 'Italianno', cursive;
   font-size: clamp(32px, 4vw, 48px); 
   text-align: center;
-  margin: 0 0 28px
+  margin: 0 0 28px;
+  color: #a44800;
 }
 
 .sec-desc {
@@ -299,7 +305,8 @@ section {
 }
 
 .grid img {
-  transition: transform .6s ease
+  transition: transform .6s ease;
+  height: 100%;
 }
 
 .grid a:hover img {
@@ -450,7 +457,7 @@ textarea {
 .lightbox .lightbox-inner {
   display: grid;
   place-items: center;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   padding: 1rem;
 }
