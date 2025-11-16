@@ -504,7 +504,7 @@ textarea {
 #giftbox {
     /* background: var(--rose); */
     padding: 80px 0;
-    display: none;
+    /* display: none; */
   }
   #giftbox .sec-title {
     color: var(--ink);
