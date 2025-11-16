@@ -99,7 +99,7 @@ color: #a44800;
   display: grid;
   place-items: center;
   /* background: linear-gradient(180deg, rgba(250, 218, 221, .55), rgba(255, 247, 243, .6)), url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG'); */
-  background-image: url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.JPG');
+  background-image: url('https://cdn.jsdelivr.net/gh/trungdungit45/ny-wedding/assets/images/002A8438.webp');
   background-size: cover;
   background-position: center;
   max-height: 100dvh;
