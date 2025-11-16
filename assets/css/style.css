@@ -141,7 +141,7 @@ color: #a44800;
   margin: 0 0 1.2rem 0;
   font-weight: 500;
   font-family: 'Italianno', cursive;
-  font-size: clamp(20px, 6vw, 30px);
+  font-size: clamp(24px, 6vw, 30px);
   color: var(--muted);
   letter-spacing:5px;
 }
@@ -150,7 +150,7 @@ color: #a44800;
   font-family: 'Italianno', cursive;
   font-weight: 600;
   letter-spacing: .5px;
-  font-size: clamp(20px, 6vw, 30px);
+  font-size: clamp(24px, 6vw, 30px);
   margin: 0 0 1.5rem 0;
 }
 
@@ -546,7 +546,7 @@ textarea {
   }
 }
 body {
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .names { font-size: clamp(30px, 7vw, 68px); }
